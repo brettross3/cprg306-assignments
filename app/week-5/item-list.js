@@ -15,16 +15,18 @@ const ItemList = () => {
  });
 
  return (
-    <div>
-      <h2>Shopping List</h2>
-      <button onClick={() => setSortBy('name')} style={{backgroundColor: sortBy === 'name' ? 'green' : 'darkgreen'}}>Sort by Name</button>
-      <button onClick={() => setSortBy('category')} style={{backgroundColor: sortBy === 'category' ? 'green' : 'darkgreen'}}>Sort by Category</button>
-      <ul>
-        {sortedItems.map(item => (
-          <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
-        ))}
-      </ul>
-    </div>
+  <div>
+     <h2 class="text-xl font-bold">Sort by:</h2>
+     <div className="space-x-4">
+       <button onClick={() => setSortBy('name')} className="bg-orange-500 p-1 m-2 w-28" style={{backgroundColor: sortBy === 'name' ? 'orange' : 'darkorange'}}>Name</button>
+       <button onClick={() => setSortBy('category')} className="bg-orange-500 p-1 m-2 w-28" style={{backgroundColor: sortBy === 'category' ? 'orange' : 'darkorange'}}>Category</button>
+     </div>
+     <ul>
+       {sortedItems.map(item => (
+         <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+       ))}
+     </ul>
+  </div>
  );
 };
 
